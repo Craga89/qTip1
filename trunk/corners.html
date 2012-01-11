@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Corner test</title>
+<style type="text/css">
+body{
+	width: auto;
+   padding: 225px 0 0;
+}
+
+.click{
+	display: block;
+	width: 575px;
+	margin: 0 auto;
+	padding: 7px;
+
+	line-height: 220px;
+	background-color: #fafafa;
+	border: 1px solid #ccc;
+}
+</style>
+</head>
+<body>
+<div class="click" href="#">&nbsp;</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.qtip-1.0.js"></script>
+<script type="text/javascript">
+// Define my and at arrays
+var my = [
+   'bottom left', 'bottom right', 'bottom center',
+   'top left', 'top right', 'top center',
+   'left center', 'left top', 'left bottom',
+   'right center', 'right top', 'right bottom', 'center'
+];
+var at = [
+   'top left', 'top right', 'top center',
+   'bottom left', 'bottom right', 'bottom center',
+   'right center', 'right top', 'right bottom',
+   'left center', 'left top', 'left bottom', 'center'
+];
+
+var colors = [
+	'red', 'blue', 'light', 'dark', 'green', 'plain'
+]
+
+// Create the tooltips only on document load
+$(document).ready(function()
+{
+	for(var i = 0; i < my.length; i++)
+	{
+		$('.click').qtip({
+			content: {
+				text: 'At it\'s ' + at[i],
+				title:  'My ' + my[i]
+			},
+			position: {
+				corner: {
+					tooltip: my[i], // Use the corner...
+					target: at[i] // ...and opposite corner
+				},
+				adjust: {
+					screen: true
+				}
+			},
+			show: {
+				when: false, // Don't specify a show event
+				ready: true // Show the tooltip when ready
+			},
+			hide: false, // Don't specify a hide event
+			style: {
+				tip: true // Give it a speech bubble tip with automatic corner detection
+			}
+		});
+	}
+});
+</script>
+</body>
+</html>

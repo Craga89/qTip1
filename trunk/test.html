@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>RC test</title>
+<style type="text/css">
+body{
+	padding: 340px;
+}
+</style>
+</head>
+<body>
+<a href="#" title="Testing">Show  a tooltip</a>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.qtip-1.0.js"></script>
+<script type="text/javascript">
+$(function()
+{
+	$('a').qtip(
+	{
+		position: {
+			target: 'mouse',
+			adjust: {
+				screen: true,
+				x: 5,
+				y: 5
+			}
+		},
+		style: {
+			tip: true
+		}
+	});
+});
+
+</script>
+</body>
+</html>
